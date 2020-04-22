@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Card } from '../components/Card/Card'
+import { Form } from '../components/Form/Form'
 
 const API = 'http://www.omdbapi.com/?i=tt3896198&apikey=7bcee2ad';
 
@@ -9,7 +10,8 @@ class List extends React.Component {
     constructor() {
         super();
         this.state = {
-            data : []
+            data : [],
+            searchTerm: ''
         }
     }
 
@@ -23,11 +25,14 @@ class List extends React.Component {
 
     render(){
         return (
-            <div className="row">
+            <>
+             <Form/>
+             <div className="row">
                 {this.state.data.map(movie => {
                     return <Card movie={movie} />
                  })}
             </div>
+            </>
         )
     }
 
