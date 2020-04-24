@@ -9,7 +9,7 @@ class Form extends React.Component {
                     className="form-control" 
                     placeholder="Search"
                     onChange={this.props.onChange}
-                    value={this.props.searchTerm}
+                    value={this.props.value}
                     autoFocus
                     />
                 </form>

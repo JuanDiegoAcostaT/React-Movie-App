@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Card } from '../components/Card/Card'
 import Form from '../components/Form/Form'
+import { NotFound } from '../components/NotFound/index';
 
 const API = 'http://www.omdbapi.com/?i=tt3896198&apikey=7bcee2ad';
 
@@ -29,12 +30,14 @@ class List extends React.Component {
         if (!this.state.searchTerm) {
             return this.setState({ error: "Please write a valid text" });
           }
-
-
-      
           const response = await fetch(`${API}&s=${this.state.searchTerm}`);
           const data = await response.json();
-          this.setState({data: data.Search})
+
+          if(!data.Search){
+            return this.setState({ error: "We can not found that title" });
+          }
+
+          this.setState({data: data.Search, error: ''})
         }
 
     
@@ -45,11 +48,11 @@ class List extends React.Component {
             onSubmit={(e) => this.handleSubmit(e)}
             error={this.state.error}
             onChange={(e) => this.setState({ searchTerm: e.target.value })}
-            
+            value={this.state.searchTerm}
             />
              <div className="row">
                 {this.state.data.map(movie => {
-                    return <Card movie={movie} />
+                    return <Card movie={movie} key={movie.imdbID} />
                  })}
             </div>
             </>
