@@ -7,8 +7,8 @@ const API = 'http://www.omdbapi.com/?i=tt3896198&apikey=7bcee2ad';
 
 class List extends React.Component {
 
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
             data : [],
             searchTerm: '',
@@ -18,26 +18,35 @@ class List extends React.Component {
 
     async componentDidMount(){
         // const res = await fetch('../../assets/data.json');
-        const res = await fetch(`${API}&s=batman`);
+        const res = await fetch(`${API}&s=robot`);
         const resJSON = await res.json();
         this.setState({data : resJSON.Search})
         // console.log(resJSON)
     }
 
-    handleSubmit (e) {
+   async handleSubmit (e) {
         e.preventDefault();
-        if(!this.state.searchTerm){
-            return this.setState({ error: 'Please Write a valid Text :)' })
+        if (!this.state.searchTerm) {
+            return this.setState({ error: "Please write a valid text" });
+          }
+
+
+      
+          const response = await fetch(`${API}&s=${this.state.searchTerm}`);
+          const data = await response.json();
+          this.setState({data: data.Search})
         }
-    }
 
-
-    render(){
+    
+    render() {
         return (
             <>
             <Form
             onSubmit={(e) => this.handleSubmit(e)}
-            error={this.state.error}/>
+            error={this.state.error}
+            onChange={(e) => this.setState({ searchTerm: e.target.value })}
+            
+            />
              <div className="row">
                 {this.state.data.map(movie => {
                     return <Card movie={movie} />

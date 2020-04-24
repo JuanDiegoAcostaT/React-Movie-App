@@ -8,7 +8,8 @@ class Form extends React.Component {
                     <input type="text"
                     className="form-control" 
                     placeholder="Search"
-                    onChange={ e => this.setState({searchTerm: e.target.value}) }
+                    onChange={this.props.onChange}
+                    value={this.props.searchTerm}
                     autoFocus
                     />
                 </form>
