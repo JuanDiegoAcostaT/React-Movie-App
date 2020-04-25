@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types'
+
 
 class Form extends React.Component {
     render() {
@@ -17,6 +19,14 @@ class Form extends React.Component {
         </div>
         )
     }
+}
+
+
+Form.propTypes = {
+    onSubmit : PropTypes.function,
+    onChange : PropTypes.string,
+    value : PropTypes.string,
+    error : PropTypes.string
 }
 
 export default Form

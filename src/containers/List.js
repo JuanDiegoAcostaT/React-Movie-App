@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Card } from '../components/Card/Card'
 import Form from '../components/Form/Form'
-import { NotFound } from '../components/NotFound/index';
+// import { NotFound } from '../components/NotFound/index';
 
 const API = 'http://www.omdbapi.com/?i=tt3896198&apikey=7bcee2ad';
 
