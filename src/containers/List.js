@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Card } from '../components/Card/Card'
 import Form from '../components/Form/Form'
+import { Loading } from '../components/Loading/index'
 // import { NotFound } from '../components/NotFound/index';
 
 const API = 'http://www.omdbapi.com/?i=tt3896198&apikey=7bcee2ad';
@@ -11,9 +12,10 @@ class List extends React.Component {
     constructor() {
         super();
         this.state = {
-            data : [],
-            searchTerm: '',
-            error: ''
+            data: [],
+            loading: true,
+            searchTerm: "",
+            error: "",
         }
     }
 
@@ -23,6 +25,14 @@ class List extends React.Component {
         const resJSON = await res.json();
         this.setState({data : resJSON.Search})
         // console.log(resJSON)
+
+    if (resJSON) {
+      this.setState({
+        data: resJSON.Search,
+        loading: false,
+        error: '',
+      });
+    }
     }
 
    async handleSubmit (e) {
@@ -37,11 +47,22 @@ class List extends React.Component {
             return this.setState({ error: "We can not found that title" });
           }
 
-          this.setState({data: data.Search, error: ''})
+        //   this.setState({data: data.Search, error: ''})
+        return this.setState({
+            data: data.Search,
+            searchTerm: "",
+            error: "",
+          });
         }
 
     
     render() {
+
+        const { loading } = this.state;
+        if (loading) {
+          return <Loading/>;
+        }
+    
         return (
             <>
             <Form
