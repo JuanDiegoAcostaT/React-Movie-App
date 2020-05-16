@@ -5,7 +5,7 @@ import Form from '../components/Form/Form'
 import { Loading } from '../components/Loading/index'
 // import { NotFound } from '../components/NotFound/index';
 
-const API = 'http://www.omdbapi.com/?i=tt3896198&apikey=7bcee2ad';
+const API = 'https://www.omdbapi.com/?i=tt3896198&apikey=7bcee2ad';
 
 class List extends React.Component {
 
