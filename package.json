@@ -1,4 +1,5 @@
 {
+  "homepage": "https://JuanDiegoAcostaT.github.io/React-Movie-App",
   "name": "react-omdb",
   "version": "1.0.0",
   "description": "An app that shows`s a movie list about what ever subject",
@@ -26,24 +27,26 @@
   "bugs": {
     "url": "https://github.com/JuanDiegoAcostaT/React-Movie-App/issues"
   },
-  "homepage": "https://github.com/JuanDiegoAcostaT/React-Movie-App#readme",
   "dependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.5",
-    "@babel/preset-react": "^7.9.4",
-    "babel-loader": "^8.1.0",
-    "bootswatch": "^4.4.1",
-    "css-loader": "^3.5.2",
-    "eslint": "^6.8.0",
-    "eslint-loader": "^4.0.2",
-    "eslint-plugin-react": "^7.19.0",
-    "html-webpack-plugin": "^4.2.0",
-    "prop-types": "^15.7.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "style-loader": "^1.1.4",
-    "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3"
+    "@babel/core": "7.9.0",
+    "@babel/preset-env": "7.9.5",
+    "@babel/preset-react": "7.9.4",
+    "babel-loader": "8.1.0",
+    "bootswatch": "4.4.1",
+    "css-loader": "3.5.2",
+    "eslint": "6.8.0",
+    "eslint-loader": "4.0.2",
+    "eslint-plugin-react": "7.19.0",
+    "html-webpack-plugin": "4.2.0",
+    "prop-types": "15.7.2",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "style-loader": "1.1.4"
+  },
+  "devDependencies": {
+    "gh-pages": "2.2.0",
+    "webpack": "4.42.1",
+    "webpack-cli": "3.3.11",
+    "webpack-dev-server": "3.10.3"
   }
 }
